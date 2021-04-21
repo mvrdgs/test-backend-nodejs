@@ -3,6 +3,7 @@ const mongoose = require('../db');
 const ProductSchema = new mongoose.Schema({
   title: {
     type: String,
+    unique: true,
     required: true,
   },
   description: {
@@ -16,7 +17,7 @@ const ProductSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-  }
+  },
 });
 
 const Product = mongoose.model('Product', ProductSchema);

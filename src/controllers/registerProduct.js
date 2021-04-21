@@ -1,12 +1,12 @@
-// peguei alguns videos, sites e resultados de buscas como referência
-// ainda não estudei backend no curso que faço
-// nunca tinha visto conteúdo de db e não sabia nem por onde começar a desenvolver uma API
+/* utilizei diversos videos, sites e resultados de buscas como referência
+ainda não entrei no módulo de backend no curso que faço então nunca tinha visto
+conteúdo de db e não sabia nem por onde começar a desenvolver uma API */
 
 const express = require('express');
 const Product = require('../models/Product');
 const router = express.Router();
 
-router.post('/register', async (req, res) => {
+router.post('/registerproduct', async (req, res) => {
   const { title } = req.body;
   try {
     if (await Product.findOne({ title }))
@@ -26,4 +26,4 @@ router.get('/productlist', (req, res) => {
   });
 });
 
-module.exports = (app) => app.use('/auth', router);
+module.exports = (app) => app.use('/', router);
